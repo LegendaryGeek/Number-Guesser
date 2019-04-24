@@ -12,30 +12,34 @@ public class Geeks_Main {
 	public static int number;
 	public static Random rand;
 
+	//This is here to get the state variable
 	public static String getState() {
 		return state;
 	}
 
+	//This is here to set the state variable
 	public static void setState(String state) {
 		Geeks_Main.state = state;
 	}
 
 	public static void main(String[] args) {
+		//prints time and state. time is printed for future lag issues if it ever gets any. =)
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + state);
 		game = new LG_Frame();
 		rand = new Random();
+		//temp target number to suffice java 
 		number = 1;
 		maxNum = 5;
 
+		//if this is not here the game automagically goes into win mode
 		while ("wait".equals(state)) {
 		}
 
 		String Tguess;
 		String Tnumber = Integer.toString(number);
-		// int guess;
+		//This is for the timer, so i don't need a time thread
 		long StartTime = System.currentTimeMillis();
 		String DefaultMessage = "Guess a number between 1 and " + maxNum + " in the Yellow Box";
-
 		String winState = "This Is not supposed to happen";
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Starting...");
 		while ("Not Won".equals(state) ) {
