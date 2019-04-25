@@ -4,11 +4,12 @@ import javax.swing.JRadioButtonMenuItem;
 
 import geek.window.LG_Frame;
 
-public class Diffucility {
-	private Diffucility() {
+public class Difficulty {
+	private Difficulty() {
 
 	}
 
+	//this sets the difficulty 
 	public static void AddDiff(JRadioButtonMenuItem diff, String diffName, boolean selected) {
 		
 		LG_Frame.Diffuctly.add(diff);
