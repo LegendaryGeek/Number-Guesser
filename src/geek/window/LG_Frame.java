@@ -114,12 +114,12 @@ public class LG_Frame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				int key = e.getKeyCode();
-				if(Geeks_Main.state == "wait") {
-					System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.state);
+				if(Geeks_Main.getState() == "wait") {
+					System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState());
 					if (key == KeyEvent.VK_ENTER && InputT.getText().trim().equals("start")) {
 						Geeks_Main.setState("Not Won");
-						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.state);
-						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Starting...");
+						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState());
+						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Starting... #1");
 					}
 				}
 			}
@@ -133,28 +133,28 @@ class ActionHandler implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current diffucility Action: " + e);
 		if (e.getSource().equals(LG_Frame.easy)) {
-			Geeks_Main.maxNum = 10;
-			Geeks_Main.number = Geeks_Main.rand.nextInt(Geeks_Main.maxNum);
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.maxNum);
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.number);
+			Geeks_Main.setMaxNum(10);
+			Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
 			
 		} else if (e.getSource().equals(LG_Frame.normal)) {
-			Geeks_Main.maxNum = 50;
-			Geeks_Main.number = Geeks_Main.rand.nextInt(Geeks_Main.maxNum);
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.maxNum);
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.number);
+			Geeks_Main.setMaxNum(50);
+			Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
 			
 		} else if (e.getSource().equals(LG_Frame.hard)) {
-			Geeks_Main.maxNum = 100;
-			Geeks_Main.number = Geeks_Main.rand.nextInt(Geeks_Main.maxNum);
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.maxNum);
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.number);
+			Geeks_Main.setMaxNum(100);
+			Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
 			
 		} else if (e.getSource().equals(LG_Frame.insane)) {
-			Geeks_Main.maxNum = 20000;
-			Geeks_Main.number = Geeks_Main.rand.nextInt(Geeks_Main.maxNum);
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.maxNum);
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.number);
+			Geeks_Main.setMaxNum(20000);
+			Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
 			
 		}
 	}
