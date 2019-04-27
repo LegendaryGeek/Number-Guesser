@@ -7,7 +7,7 @@ import geek.window.LG_Frame;
 public class Geeks_Main {
 	
 	static LG_Frame game;
-	//private static String state = "wait";
+	private static State CurrentState = State.WAIT;
 	private static int maxNum;
 	private static int number;
 	private static Random rand;
@@ -15,7 +15,7 @@ public class Geeks_Main {
 	
 	public static void main(String[] args) {
 		//prints time and state. time is printed for future lag issues if it ever gets any. =)
-		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + State.);
+		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + State);
 		game = new LG_Frame();
 		setRand(new Random());
 		//temp target number to suffice java 
@@ -94,6 +94,26 @@ public class Geeks_Main {
 	public static void setState(String state) {
 		Geeks_Main.state = state;
 	}*/
+	public boolean CheckState(State StateIn) {
+		
+		switch(StateIn) {
+		case WAIT:
+			CurrentState.equals(State.WAIT);
+			break;
+		case PLAYING:
+			CurrentState.equals(State.PLAYING);
+			break;
+		case LOST:
+			CurrentState.equals(State.LOST);
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Initalizing Dharma Network...");
+			break;
+		case WON:
+			CurrentState.equals(State.WON);
+			break;
+		default: return false;
+		}
+		return false;
+	}
 	public enum State {
 		   WAIT("wait"), LOST("Lost Game"), PLAYING("Playing"), WON("Won Game");
 
@@ -107,5 +127,6 @@ public class Geeks_Main {
 		   public String toString() {
 		      return this.state;
 		   }
+		   
 		}
 }

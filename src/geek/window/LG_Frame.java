@@ -114,7 +114,7 @@ public class LG_Frame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				int key = e.getKeyCode();
-				if(Geeks_Main.getState() == "wait") {
+				if(Geeks_Main.State.WAIT) {
 					System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState());
 					if (key == KeyEvent.VK_ENTER && InputT.getText().trim().equals("start")) {
 						Geeks_Main.setState("Not Won");
