@@ -15,15 +15,15 @@ public class Geeks_Main {
 	
 	public static void main(String[] args) {
 		//prints time and state. time is printed for future lag issues if it ever gets any. =)
-		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + State);
+		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState().toString());
 		game = new LG_Frame();
 		setRand(new Random());
 		//temp target number to suffice java 
 		setNumber(1);
 		setMaxNum(5);
 		//if this is not here the game automagically goes into win mode
-		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State before loop: " + state);
-		while (/*"wait".equals(getState())*/) {
+		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State before loop: " + Geeks_Main.getState().toString());
+		while (Geeks_Main.getState() == State.WAIT) {
 			//DONT UNCOMMENT THIS!!!!!!!!!! System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + state);
 			
 		}
@@ -35,13 +35,13 @@ public class Geeks_Main {
 		String DefaultMessage = "Guess a number between 1 and " + getMaxNum() + " in the Yellow Box";
 		String winState = "This Is not supposed to happen";
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Starting... #2");
-		while (/*"Not Won".equals(state)*/ ) {
+		while (Geeks_Main.getState() == State.PLAYING) {
 
 			LG_Frame.main.setText(DefaultMessage);
 			Tguess = LG_Frame.InputT.getText();
 
 			if (Tguess == null ? Tnumber == null : Tguess.equals(Tnumber)) {
-				state = "Won";
+				setState(Geeks_Main.State.WON);
 
 			} else {
 				LG_Frame.main.setText(DefaultMessage + "\n Number is incorrect. Please try again.");
@@ -87,14 +87,14 @@ public class Geeks_Main {
 		Geeks_Main.rand = rand;
 	}
 	
-	/*public static String getState() {
-		return state;
+	public static State getState() {
+		return CurrentState;
 	}
 
-	public static void setState(String state) {
-		Geeks_Main.state = state;
-	}*/
-	public boolean CheckState(State StateIn) {
+	public static void setState(State state) {
+		Geeks_Main.CurrentState = state;
+	}
+	/*public static boolean CheckState(State StateIn) {
 		
 		switch(StateIn) {
 		case WAIT:
@@ -113,7 +113,7 @@ public class Geeks_Main {
 		default: return false;
 		}
 		return false;
-	}
+	}*/
 	public enum State {
 		   WAIT("wait"), LOST("Lost Game"), PLAYING("Playing"), WON("Won Game");
 

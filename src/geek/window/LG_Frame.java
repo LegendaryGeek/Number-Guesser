@@ -114,10 +114,10 @@ public class LG_Frame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				int key = e.getKeyCode();
-				if(Geeks_Main.State.WAIT) {
+				if(Geeks_Main.getState() == Geeks_Main.State.WAIT) {
 					System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState());
 					if (key == KeyEvent.VK_ENTER && InputT.getText().trim().equals("start")) {
-						Geeks_Main.setState("Not Won");
+						Geeks_Main.setState(Geeks_Main.State.PLAYING);
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState());
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Starting... #1");
 					}
