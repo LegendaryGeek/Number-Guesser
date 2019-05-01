@@ -24,8 +24,9 @@ public class Geeks_Main {
 		//if this is not here the game automagically goes into win mode
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State before loop: " + Geeks_Main.getState().toString());
 		while (Geeks_Main.getState() == State.WAIT) {
-			//DONT UNCOMMENT THIS!!!!!!!!!! System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + state);
-			
+			if (game.LGF) {
+				
+			}
 		}
 
 		String Tguess;

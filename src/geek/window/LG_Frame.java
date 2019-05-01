@@ -120,6 +120,7 @@ public class LG_Frame {
 						Geeks_Main.setState(Geeks_Main.State.PLAYING);
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState());
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Starting... #1");
+						
 					}
 				}
 			}
