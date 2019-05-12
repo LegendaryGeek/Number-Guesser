@@ -35,7 +35,7 @@ dependencies {
 group = 'geek'
 jar {
     manifest {
-        attributes 'Implementation-Title': 'Gradle Quickstart',
+        attributes 'Implementation-Title': 'Number Guesser',
                    'Implementation-Version': '1.0',
                    'Main-Class': 'geek.main'
     }
