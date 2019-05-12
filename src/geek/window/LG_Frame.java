@@ -56,10 +56,6 @@ public class LG_Frame {
 	    LGF.add(ToolBar, BorderLayout.NORTH);
 	    System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Toolbar made");
 	    
-	    //geek.utilities.Diffucility.AddDiff(easy, "easy", true);
-	    //geek.utilities.Diffucility.AddDiff(normal, "normal", false);
-	    //geek.utilities.Diffucility.AddDiff(hard, "hard", false);
-	    //geek.utilities.Diffucility.AddDiff(insane, "insane", false);
 	    easy = new JRadioButtonMenuItem("Easy");
 	    Diffuctly.add(easy);
 	    Settings.add(easy);

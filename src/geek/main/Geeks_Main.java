@@ -15,7 +15,6 @@ public class Geeks_Main {
 	private static String Tguess;
 	private static String Tnumber;
 
-	
 	public static void main(String[] args) throws InterruptedException {
 		//prints time and state. time is printed for future lag issues if it ever gets any. =)
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState().toString());
@@ -102,26 +101,7 @@ public class Geeks_Main {
 	public static void setTguess(String tguess) {
 		Tguess = tguess;
 	}
-	/*public static boolean CheckState(State StateIn) {
-		
-		switch(StateIn) {
-		case WAIT:
-			CurrentState.equals(State.WAIT);
-			break;
-		case PLAYING:
-			CurrentState.equals(State.PLAYING);
-			break;
-		case LOST:
-			CurrentState.equals(State.LOST);
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Initializing Dharma Network...");
-			break;
-		case WON:
-			CurrentState.equals(State.WON);
-			break;
-		default: return false;
-		}
-		return false;
-	}*/
+
 	public enum State {
 		   WAIT("wait"), LOST("Lost Game"), PLAYING("Playing"), WON("Won Game"), EXIT("Exiting Game"), START("Starting Game");
 
