@@ -17,7 +17,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTextPane;
 
-import geek.main.Geeks_Main;
+import main.java.geek.main.Geeks_Main;
 
 public class LG_Frame {
 	
