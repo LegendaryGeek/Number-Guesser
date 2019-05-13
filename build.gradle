@@ -37,7 +37,7 @@ jar {
     manifest {
         attributes 'Implementation-Title': 'Number Guesser',
                    'Implementation-Version': '1.0',
-                   'Main-Class': 'geek.main'
+                   'Main-Class': 'geek.main.Geeks_Main'
     }
 }
 

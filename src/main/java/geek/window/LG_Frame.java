@@ -17,7 +17,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTextPane;
 
-import main.java.geek.main.Geeks_Main;
+import geek.main.Geeks_Main;
 
 public class LG_Frame {
 	
@@ -127,9 +127,44 @@ public class LG_Frame {
 class ActionHandler implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current diffucility Action: " + e);
-		if (e.getSource().equals(LG_Frame.easy)) {
+		switch(e.getSource().toString()) {
+		case "easy": 
+		 	Geeks_Main.setMaxNum(10);
+		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
+			break;
+		case "normal":
+			Geeks_Main.setMaxNum(50);
+		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
+			break;
+		case "hard":
+			Geeks_Main.setMaxNum(100);
+		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
+			break;
+		case "insane":
+			Geeks_Main.setMaxNum(20000);
+		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
+			break;
+		default:
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Failed to set Diffuclty. setting to easy. got: " + e.getSource().toString());
 			Geeks_Main.setMaxNum(10);
-			Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
+			break;
+		}
+		/*
+		  if (e.getSource().equals(LG_Frame.easy)) {
+		 
+		 	Geeks_Main.setMaxNum(10);
+		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
 			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
 			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
 			
@@ -152,5 +187,6 @@ class ActionHandler implements ActionListener {
 			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
 			
 		}
+		*/
 	}
 }
