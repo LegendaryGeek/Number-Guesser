@@ -18,14 +18,15 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTextPane;
 
 import geek.main.Geeks_Main;
+import geek.window.LG_Frame.Difficulty;
 
 public class LG_Frame {
 	
 	public JFrame LGF;
-	private static JRadioButtonMenuItem easy;
-	private static JRadioButtonMenuItem normal;
-	private static JRadioButtonMenuItem hard;
-	private static JRadioButtonMenuItem insane;
+	static JRadioButtonMenuItem easy;
+	static JRadioButtonMenuItem normal;
+	static JRadioButtonMenuItem hard;
+	static JRadioButtonMenuItem insane;
 	private JMenuBar ToolBar;
 	private static ButtonGroup Diffuctly;
 	private BorderLayout manager;
@@ -37,6 +38,7 @@ public class LG_Frame {
     private int ScreenWidth = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
     private int ScreenHeight = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
     ActionHandler HANDY = new ActionHandler();
+    private Difficulty diff;
 	
 	public LG_Frame() {
 		LGF = new JFrame("LegendaryGeek's Number Guessing Game | update 2.0");
@@ -72,6 +74,8 @@ public class LG_Frame {
 	    insane = new JRadioButtonMenuItem("Insane");
 	    Diffuctly.add(insane);
 	    Settings.add(insane);
+	    
+	    diff = Difficulty.Easy;
 	   
 	    easy.addActionListener(HANDY);
 	    normal.addActionListener(HANDY);
@@ -131,76 +135,36 @@ public class LG_Frame {
 		 
 		   public String GetDifficulty() {
 		      return this.Difficulty;
-		   }
-		   public int 
+		   } 
 		}
+	public Difficulty getDiff() {
+		return diff;
+	}
+	public void setDiff(Difficulty diff) {
+		this.diff = diff;
+	}
 
 }
 
 class ActionHandler implements ActionListener {
+	LG_Frame lgf;
+	LG_Frame.Difficulty diff;
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current diffucility Action: " + e);
-		switch(e.getSource()) {
-		case "easy": 
-		 	Geeks_Main.setMaxNum(10);
-		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
-			break;
-		case "normal":
-			Geeks_Main.setMaxNum(50);
-		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
-			break;
-		case "hard":
-			Geeks_Main.setMaxNum(100);
-		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
-			break;
-		case "insane":
-			Geeks_Main.setMaxNum(20000);
-		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
-			break;
-		default:
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Failed to set Diffuclty. setting to easy. got: " + e.getSource().toString());
-			Geeks_Main.setMaxNum(10);
-		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
-			break;
-		}
-		/*
 		  if (e.getSource().equals(LG_Frame.easy)) {
-		 
-		 	Geeks_Main.setMaxNum(10);
-		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
+			  lgf.setDiff(Difficulty.Easy);
 			
 		} else if (e.getSource().equals(LG_Frame.normal)) {
-			Geeks_Main.setMaxNum(50);
-			Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
+			lgf.setDiff(Difficulty.Normal);
 			
 		} else if (e.getSource().equals(LG_Frame.hard)) {
-			Geeks_Main.setMaxNum(100);
-			Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
+			lgf.setDiff(Difficulty.Hard);
 			
 		} else if (e.getSource().equals(LG_Frame.insane)) {
-			Geeks_Main.setMaxNum(20000);
-			Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
-			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
+			lgf.setDiff(Difficulty.Insane);
 			
 		}
-		*/
+		
 	}
 	
 }

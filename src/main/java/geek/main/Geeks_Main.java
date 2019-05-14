@@ -28,7 +28,9 @@ public class Geeks_Main {
 		while (Geeks_Main.getState() == State.WAIT) {
 			TimeUnit.SECONDS.sleep(1);
 		}
-
+		setNumber(getRand().nextInt(getMaxNum()));
+		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current Maximum number guessable: " + Geeks_Main.getMaxNum());
+		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current number: " + Geeks_Main.getNumber());
 		Tnumber = Integer.toString(getNumber());
 		//This is for the timer, so i don't need a time thread
 		long StartTime = System.currentTimeMillis();
