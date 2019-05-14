@@ -22,16 +22,16 @@ import geek.main.Geeks_Main;
 public class LG_Frame {
 	
 	public JFrame LGF;
-	public static JRadioButtonMenuItem easy;
-	public static JRadioButtonMenuItem normal;
-	public static JRadioButtonMenuItem hard;
-	public static JRadioButtonMenuItem insane;
-	public JMenuBar ToolBar;
-	public static ButtonGroup Diffuctly;
-	public BorderLayout manager;
+	private static JRadioButtonMenuItem easy;
+	private static JRadioButtonMenuItem normal;
+	private static JRadioButtonMenuItem hard;
+	private static JRadioButtonMenuItem insane;
+	private JMenuBar ToolBar;
+	private static ButtonGroup Diffuctly;
+	private BorderLayout manager;
 	public static JTextPane InputT;
 	public static JTextPane main;
-	public static JMenu Settings;
+	private static JMenu Settings;
 	@SuppressWarnings("unused")
 	private JMenuItem MenueItem;
     private int ScreenWidth = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
@@ -120,14 +120,28 @@ public class LG_Frame {
 			}
 		});
 	}
-	
+	public enum Difficulty {
+		   Easy(10, "Easy"), Normal(50, "Normal"), Hard(100, "Hard"), Insane(20000, "Insane"); 
+
+		   //private int MaxNum;
+		   private String Difficulty;
+		   Difficulty(int numIn, String nameIn) {
+		      Geeks_Main.setMaxNum(numIn);
+		      this.Difficulty = nameIn;
+		   }
+		 
+		   public String GetDifficulty() {
+		      return this.Difficulty;
+		   }
+		   public int 
+		}
 
 }
 
 class ActionHandler implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current diffucility Action: " + e);
-		switch(e.getSource().toString()) {
+		switch(e.getSource()) {
 		case "easy": 
 		 	Geeks_Main.setMaxNum(10);
 		 	Geeks_Main.setNumber(Geeks_Main.getRand().nextInt(Geeks_Main.getMaxNum()));
@@ -189,4 +203,5 @@ class ActionHandler implements ActionListener {
 		}
 		*/
 	}
+	
 }
