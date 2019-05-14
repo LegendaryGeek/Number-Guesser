@@ -123,7 +123,6 @@ public class LG_Frame {
 	public enum Difficulty {
 		   Easy(10, "Easy"), Normal(50, "Normal"), Hard(100, "Hard"), Insane(20000, "Insane"); 
 
-		   //private int MaxNum;
 		   private String Difficulty;
 		   Difficulty(int numIn, String nameIn) {
 		      Geeks_Main.setMaxNum(numIn);
