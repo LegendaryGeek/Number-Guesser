@@ -147,12 +147,12 @@ public class LG_Frame {
 }
 
 class ActionHandler implements ActionListener {
-	LG_Frame lgf;
+	LG_Frame lgf = Geeks_Main.game;
 	LG_Frame.Difficulty diff;
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current diffucility Action: " + e);
-		  if (e.getSource().equals(LG_Frame.easy)) {
-			  lgf.setDiff(Difficulty.Easy);
+		 if (e.getSource().equals(LG_Frame.easy)) {
+			 lgf.setDiff(Difficulty.Easy);
 			
 		} else if (e.getSource().equals(LG_Frame.normal)) {
 			lgf.setDiff(Difficulty.Normal);

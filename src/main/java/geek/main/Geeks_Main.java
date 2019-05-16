@@ -7,7 +7,7 @@ import geek.window.LG_Frame;
 
 public class Geeks_Main {
 	
-	static LG_Frame game;
+	public static LG_Frame game;
 	private static State CurrentState = State.WAIT;
 	private static int maxNum;
 	private static int number;
