@@ -159,7 +159,7 @@ class ActionHandler implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current diffucility Action: " + e);
 		if (e.getSource().equals(LG_Frame.easy)) {
-			LG_Frame.setDiff(Difficulty.Easy);
+			LG_Frame.this.setDiff(Difficulty.Easy);
 
 		} else if (e.getSource().equals(LG_Frame.normal)) {
 			LG_Frame.setDiff(Difficulty.Normal);
