@@ -18,15 +18,14 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTextPane;
 
 import geek.main.Geeks_Main;
-import geek.window.LG_Frame.Difficulty;
 
 public class LG_Frame {
 
 	public JFrame LG_Frame;
-	static JRadioButtonMenuItem easy;
-	static JRadioButtonMenuItem normal;
-	static JRadioButtonMenuItem hard;
-	static JRadioButtonMenuItem insane;
+	public JRadioButtonMenuItem easy;
+	public JRadioButtonMenuItem normal;
+	public JRadioButtonMenuItem hard;
+	public JRadioButtonMenuItem insane;
 	private JMenuBar ToolBar;
 	private static ButtonGroup Diffuctly;
 	private BorderLayout manager;
@@ -150,28 +149,27 @@ public class LG_Frame {
 		this.diff = diff1;
 	}
 
-}
+	class ActionHandler implements ActionListener {
 
-class ActionHandler implements ActionListener {
+		// LG_Frame.Difficulty diff;
 
-	LG_Frame.Difficulty diff;
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current diffucility Action: " + e);
+			if (e.getSource().equals(LG_Frame.this.easy)) {
+				LG_Frame.this.setDiff(Difficulty.Easy);
 
-	public void actionPerformed(ActionEvent e) {
-		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current diffucility Action: " + e);
-		if (e.getSource().equals(LG_Frame.easy)) {
-			LG_Frame.this.setDiff(Difficulty.Easy);
+			} else if (e.getSource().equals(LG_Frame.this.normal)) {
+				LG_Frame.this.setDiff(Difficulty.Normal);
 
-		} else if (e.getSource().equals(LG_Frame.normal)) {
-			LG_Frame.setDiff(Difficulty.Normal);
+			} else if (e.getSource().equals(LG_Frame.this.hard)) {
+				LG_Frame.this.setDiff(Difficulty.Hard);
 
-		} else if (e.getSource().equals(LG_Frame.hard)) {
-			LG_Frame.setDiff(Difficulty.Hard);
+			} else if (e.getSource().equals(LG_Frame.this.insane)) {
+				LG_Frame.this.setDiff(Difficulty.Insane);
 
-		} else if (e.getSource().equals(LG_Frame.insane)) {
-			LG_Frame.setDiff(Difficulty.Insane);
+			}
 
 		}
-
 	}
 
 }
