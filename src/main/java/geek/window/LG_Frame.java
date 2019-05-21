@@ -130,15 +130,19 @@ public class LG_Frame {
 		Easy(10, "Easy"), Normal(50, "Normal"), Hard(100, "Hard"), Insane(20000, "Insane");
 
 		private String Difficulty;
+		private int num;
 
 		Difficulty(int numIn, String nameIn) {
-			Geeks_Main.setMaxNum(numIn);
+			this.num = numIn;
 			this.Difficulty = nameIn;
 		}
 
 		public String GetDifficulty() {
 			return this.Difficulty;
 		}
+		 public int getNum() {
+			 return this.num;
+		 }
 	}
 
 	public Difficulty getDiff() {
@@ -147,11 +151,10 @@ public class LG_Frame {
 
 	public void setDiff(Difficulty diff1) {
 		this.diff = diff1;
+		Geeks_Main.setMaxNum(diff.getNum());
 	}
 
 	class ActionHandler implements ActionListener {
-
-		// LG_Frame.Difficulty diff;
 
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current diffucility Action: " + e);
