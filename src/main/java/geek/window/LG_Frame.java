@@ -38,6 +38,7 @@ public class LG_Frame {
 	private int ScreenHeight = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 	ActionHandler HANDY = new ActionHandler();
 	private Difficulty diff;
+	public boolean onUpdate = false;
 
 	public LG_Frame() {
 		LG_Frame = new JFrame("LegendaryGeek's Number Guessing Game | update 2.0");
@@ -111,16 +112,27 @@ public class LG_Frame {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				int key = e.getKeyCode();
+				if (key == KeyEvent.VK_ENTER){
 				if (Geeks_Main.getState() == Geeks_Main.State.WAIT) {
 					System.out.println(
 							"[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState());
-					if (key == KeyEvent.VK_ENTER && InputT.getText().trim().equals("start")) {
+					if(InputT.getText().trim().equals("start")) {
+						
 						Geeks_Main.setState(Geeks_Main.State.PLAYING);
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: "
 								+ Geeks_Main.getState());
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Starting... #1");
-
+					}else {
+						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Input Field does not say \"start\"");
 					}
+
+					} else if(Geeks_Main.getState() == Geeks_Main.State.PLAYING){
+						onUpdate = true;
+						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "update fired!");
+					}
+				onUpdate = false;
+				
+				InputT.setText("");
 				}
 			}
 		});
@@ -140,9 +152,10 @@ public class LG_Frame {
 		public String GetDifficulty() {
 			return this.Difficulty;
 		}
-		 public int getNum() {
-			 return this.num;
-		 }
+
+		public int getNum() {
+			return this.num;
+		}
 	}
 
 	public Difficulty getDiff() {

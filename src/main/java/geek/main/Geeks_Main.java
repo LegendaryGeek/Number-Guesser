@@ -41,17 +41,19 @@ public class Geeks_Main {
 		String DefaultMessage = "Guess a number between 1 and " + getMaxNum() + " in the Yellow Box";
 		String winState = "This Is not supposed to happen";
 		System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Starting... #2");
+		LG_Frame.main.setText(DefaultMessage);
 		while (Geeks_Main.getState() == State.PLAYING) {
+			if (game.onUpdate) {
 
-			LG_Frame.main.setText(DefaultMessage);
-			setTguess(LG_Frame.InputT.getText());
+				setTguess(LG_Frame.InputT.getText());
 
-			if (getTguess() == null ? Tnumber == null : getTguess().equals(Tnumber)) {
-				setState(Geeks_Main.State.WON);
+				if (getTguess() == null ? Tnumber == null : getTguess().equals(Tnumber)) {
+					setState(Geeks_Main.State.WON);
 
-			} else {
-				LG_Frame.main.setText(DefaultMessage + "\n Number is incorrect. Please try again.");
+				} else {
+					LG_Frame.main.setText(DefaultMessage + "\n Number is incorrect. Please try again.");
 
+				}
 			}
 		}
 		long elapsedTime = System.currentTimeMillis() - StartTime;
