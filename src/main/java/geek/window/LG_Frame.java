@@ -17,7 +17,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTextPane;
 
-import geek.main.Geeks_Main;
+import geek.main.NumberGuesser;
 
 public class LG_Frame {
 
@@ -113,20 +113,20 @@ public class LG_Frame {
 			public void keyPressed(KeyEvent e) {
 				int key = e.getKeyCode();
 				if (key == KeyEvent.VK_ENTER){
-				if (Geeks_Main.getState() == Geeks_Main.State.WAIT) {
+				if (NumberGuesser.getState() == NumberGuesser.State.WAIT) {
 					System.out.println(
-							"[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + Geeks_Main.getState());
+							"[" + java.time.LocalDateTime.now() + "] " + "Current App State: " + NumberGuesser.getState());
 					if(InputT.getText().trim().equals("start")) {
 						
-						Geeks_Main.setState(Geeks_Main.State.PLAYING);
+						NumberGuesser.setState(NumberGuesser.State.PLAYING);
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Current App State: "
-								+ Geeks_Main.getState());
+								+ NumberGuesser.getState());
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Starting... #1");
 					}else {
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "Input Field does not say \"start\"");
 					}
 
-					} else if(Geeks_Main.getState() == Geeks_Main.State.PLAYING){
+					} else if(NumberGuesser.getState() != NumberGuesser.State.WAIT){
 						onUpdate = true;
 						System.out.println("[" + java.time.LocalDateTime.now() + "] " + "update fired!");
 					}
@@ -164,7 +164,7 @@ public class LG_Frame {
 
 	public void setDiff(Difficulty diff1) {
 		this.diff = diff1;
-		Geeks_Main.setMaxNum(diff.getNum());
+		NumberGuesser.setMaxNum(diff.getNum());
 	}
 
 	class ActionHandler implements ActionListener {
